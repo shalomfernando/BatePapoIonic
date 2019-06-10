@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Bate-papo
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Nome:</ion-label>
+    <ion-input [(ngModel)]="nomeUser" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Sala</ion-label>
+    <ion-select [(ngModel)]="opcao" (change)="opcao" placeholder="Selecione para entrar no chat">
+      <ion-option *ngFor="let sala of salas" [value]="sala">{{sala.nome}}</ion-option>
+    </ion-select>
+
+  </ion-item>
+  <button ion-button full (click)="onItemClick()">
+    <ion-icon name="send"></ion-icon>&nbsp;&nbsp;Entrar
+  </button>
+
+</ion-content>
