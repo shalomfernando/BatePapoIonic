@@ -16,8 +16,14 @@
     <ion-select [(ngModel)]="opcao" (change)="opcao" placeholder="Selecione para entrar no chat">
       <ion-option *ngFor="let sala of salas" [value]="sala">{{sala.nome}}</ion-option>
     </ion-select>
-
   </ion-item>
+  <ion-list radio-group [(ngModel)]="iconUser">
+    <ion-item *ngFor = "let ico of icon">
+      <ion-label><ion-icon  name="{{ico.nome}}"></ion-icon> {{ico.descr}}</ion-label>
+      <ion-radio value="{{ico.nome}}" checked></ion-radio>
+    </ion-item>
+  </ion-list>
+
   <button ion-button full (click)="onItemClick()">
     <ion-icon name="send"></ion-icon>&nbsp;&nbsp;Entrar
   </button>

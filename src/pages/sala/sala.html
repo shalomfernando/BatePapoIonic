@@ -12,19 +12,20 @@
 
 <ion-content padding>
 
+  <ion-card-content>
+    <ion-card-header> Msessage</ion-card-header>
+    <div  *ngFor="let text of textArea">
+      <ion-icon name="{{icon}}"></ion-icon> {{text.nome}} : {{text.txt}}
+    </div>
+  </ion-card-content>
+  <ion-item>
 
-
-<!--  <ion-card *ngFor="let text of textArea">-->
-<!--    {{text.nome}} : {{text.txt}}-->
-<!--  </ion-card>-->
-  <ion-item >
-
-    <ion-textarea [(ngModel)]="area"  rows="6" cols="70" >
-    </ion-textarea>
+    <!--    <ion-textarea [(ngModel)]="area"  rows="6" cols="70" >-->
+    <!--    </ion-textarea>-->
   </ion-item>
   <ion-item>
     <ion-label floating>Digite:</ion-label>
-    <ion-input [(ngModel)]="txtUsuario" type="text"></ion-input>
+    <ion-input (keyup.enter)="onAddClick()" [(ngModel)]="txtUsuario" type="text"></ion-input>
   </ion-item>
   <ion-fab end>
     <button ion-fab color="primary" (click)="onAddClick()">

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {ChatService} from "../../app/chatServer";
+
 // import {text} from "@angular/core/src/render3/instructions";
 
 /**
@@ -18,28 +20,29 @@ export class SalaPage {
   sala;
   txtUsuario;
   textArea = [];
-  area = "" ;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.sala = navParams.get("sala");
-  console.log(this.sala);
-    console.log(this.sala.nome);
-    console.log(this.sala.nome);
-    console.log(this.sala.nome);
-    // this.textArea = this.textArea;
+  area = "";
+  icon;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public chat: ChatService) {
+    this.sala = navParams.get("sala");
+    this.icon = this.sala.icon;
+    console.log(this.sala);
+    console.log(this.sala);
+    chat.addList(this.sala)
+
   }
 
-  onAddClick(){
-    this.textArea.push({txt : this.txtUsuario, nome: this.sala.nome});
-    this.area= this.area + this.sala.nome +": " + this.txtUsuario + "\n"
+  onAddClick() {
+    this.textArea.push({txt: this.txtUsuario, nome: this.sala.nome, sala: this.sala.opcao});
     console.log(this.area);
     this.txtUsuario = "";
-    // this.navCtrl.push("SalaPage",this.textArea);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SalaPage');
   }
-  logForm(){
+
+  logForm() {
 
   }
 
