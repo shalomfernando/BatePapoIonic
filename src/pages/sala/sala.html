@@ -14,8 +14,9 @@
 
   <ion-card-content>
     <ion-card-header> Msessage</ion-card-header>
-    <div  *ngFor="let text of textArea">
-      <ion-icon name="{{icon}}"></ion-icon> {{text.nome}} : {{text.txt}}
+    <div  *ngFor="let text of textArea| async">
+      <ion-icon name="{{text.icon}}"></ion-icon> {{text.usuario}} : {{text.message}}<br>
+      {{text.data}}
     </div>
   </ion-card-content>
   <ion-item>
