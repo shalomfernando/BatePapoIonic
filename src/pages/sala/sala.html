@@ -11,19 +11,6 @@
 </ion-header>
 
 <ion-content padding>
-
-  <ion-card-content>
-    <ion-card-header> Msessage</ion-card-header>
-    <div  *ngFor="let text of textArea| async">
-      <ion-icon name="{{text.icon}}"></ion-icon> {{text.usuario}} : {{text.message}}<br>
-      {{text.data}}
-    </div>
-  </ion-card-content>
-  <ion-item>
-
-    <!--    <ion-textarea [(ngModel)]="area"  rows="6" cols="70" >-->
-    <!--    </ion-textarea>-->
-  </ion-item>
   <ion-item>
     <ion-label floating>Digite:</ion-label>
     <ion-input (keyup.enter)="onAddClick()" [(ngModel)]="txtUsuario" type="text"></ion-input>
@@ -33,5 +20,35 @@
       <ion-icon name="send"></ion-icon>
     </button>
   </ion-fab>
+  <ion-card-content>
+    <ion-card-header> Msessage</ion-card-header>
+    <ion-list no-lines  *ngFor="let text of textArea| async |orderBy:'order':true; let iLine = index">
+      <ion-icon name="{{text.icon}}"></ion-icon> {{text.usuario}} : {{text.message}}<br>
+      {{text.data}}
+    </ion-list>
+<!--    -->
+<!--    <ion-list no-lines *ngFor="let mensagem of sala.mensagens | async | orderBy:'order':true; let iLine = index">-->
+<!--      <ion-card>-->
+<!--        <ion-card-header>-->
+<!--          <ion-icon name="{{mensagem.icones}}"></ion-icon>-->
+<!--          {{mensagem.nome}}:-->
+<!--        </ion-card-header>-->
+<!--        <ion-card-content>-->
+<!--          {{mensagem.texto}}&nbsp;&nbsp;&nbsp;-->
+
+<!--          {{mensagem.adata | date:'dd/MM/yyyy HH:mm'}}-->
+
+<!--        </ion-card-content>-->
+
+<!--      </ion-card>-->
+<!--    </ion-list>-->
+<!--    -->
+  </ion-card-content>
+  <ion-item>
+
+    <!--    <ion-textarea [(ngModel)]="area"  rows="6" cols="70" >-->
+    <!--    </ion-textarea>-->
+  </ion-item>
+
 
 </ion-content>

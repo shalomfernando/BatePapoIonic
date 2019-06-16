@@ -60,4 +60,5 @@ export class SalaPage {
     console.log('ionViewDidLoad SalaPage');
 
   }
+
 }
